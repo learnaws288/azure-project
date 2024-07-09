@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-server
+  labels:
+    app: simple-node-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-node-server
+  template:
+    metadata:
+      labels:
+        app: simple-node-server
+    spec:
+      containers:
+      - name: simple-node-server
+        image: 975050347758.dkr.ecr.us-east-1.amazonaws.com/server1:latest
+        ports:
+        - containerPort: 8080
